@@ -2,32 +2,133 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+.bgimage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, black, grey);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.newsbackground {
+  background: linear-gradient(to top,black, grey);
+}
+
+.bgimage::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://s3-alpha-sig.figma.com/img/ba2d/4e8c/23de4a2d9d996dd4e00a870c068eba3f?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qCc7pDqGUYAMunpXi2GyP1BUQz6uQjcGdxn~rK3Rj5j8RvdPnbxGWpSzyon5dk-qRMuqa5IiROMSeHbND4AktmBAWiFVzK3JtXikjpzGrq6U~HwXb3zBWxrw-2Zurdi0uBIoTkz-BGR2D031iiaIHKw9~fYZ-qxf5mvw~Q-FJtzHs9RjOx5RB0hKkQGBiLiwGbplhisqSvZpmOY25~htLuE9frvhp0WYrXmHFdJEQOEVkPr-ftCmEOwjcMuDeckjimwpM3ZqPPZFo6MQxTVCsr2z5OQos3RJawypipIBCh0huXOwbQydxUWXwjH69CKre-HHBpEvpB0qnwWZz1ojEQ__');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.19;
+  z-index: -1;
+}
+
+.bgimagecontainer1{
+    background-image: url('../public/Images/container1.jpg');
+    background-size: cover;
+    z-index: 0;
+    background-position: center;
+}
+
+.bgimagecontainer2{
+  background-image: url('../public/Images/container2.jpg');
+  background-size: cover;
+  z-index: 0;
+  background-position: center;
+}
+
+.bgimagecontainer3{
+  background-image: url('../public/Images/container3.jpg');
+  background-size: cover;
+  z-index: 0;
+  background-position: center;
+}
+
+.bgimagecontainer4{
+  background-image: url('../public/Images/container4.jpeg');
+  background-size: cover;
+  z-index: 0;
+  background-position: center;
+}
+
+.OnePeice{
+  background-image: url("../public/Images/onepeice.jpg");
+  background-size: cover;
+  z-index: 0;
+  background-position: center;
+}
+
+
+.Naruto{
+  background-image: url("../public/Images/naruto.jpeg");
+  background-size: cover;
+  z-index: 0;
+  background-position: center;
+}
+.Bleach{
+  background-image: url("../public/Images/bleach.jpg");
+  background-size: cover;
+  z-index: 0;
+  background-position: center;
+}
+.DeathNote{
+  background-image: url("../public/Images/deathnote.jpg");
+  background-size: cover;
+  z-index: 0;
+  background-position: center;
+}
+.BakiHanma{
+  background-image: url("../public/Images/baki.jpg");
+  background-size: cover;
+  z-index: 0;
+  background-position: center;
+}
+.Sololevling{
+  background-image: url("../public/Images/sololevling.jpg");
+  background-size: cover;
+  z-index: 0;
+  background-position: center;
+}
+.KaijuNo8{
+  background-image: url("../public/Images/kaijuno8.png");
+  background-size: cover;
+  z-index: 0;
+  background-position: center;
+}
+
+
+.custom-shape {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to right, #000, #222);
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+}
+
+
+.lato_init{
+  font-family: var(--font-lato);
+}
+
+.playfair_display{
+  font-family: var(--font-playfair);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.animate-scroll {
+  animation: scroll 20s linear infinite;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
+
