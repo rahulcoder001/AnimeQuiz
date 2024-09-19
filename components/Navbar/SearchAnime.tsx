@@ -32,7 +32,7 @@ export function AnimeSearch({filter , setfilter}:any) {
                 <div className="xl:mt-5 ml-1 xl:ml-5">
                  <div className="font-bold  xl:text-lg">{item.Anime}</div>
                  <div className="flex text-xs xl:text-sm">
-                    <p>Members - 0</p>
+                    <p>Members - {item.Membership}</p>
                     <p className="hover:text-orange-500 hover:underline ml-2 xl:ml-5">Play now</p>
                  </div>
                 </div>
