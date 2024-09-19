@@ -22,7 +22,7 @@ export default function MembershipPage() {
     if (userr) {
       try {
         const response = await axios.get(`/api/membership?id=${userr.id}`);
-        setTransactionList(response.data.transactionlist);
+        setTransactionList(response.data.trasactionlist);
       } catch (error) {
         console.error("Error fetching transaction list", error);
       }
@@ -142,7 +142,7 @@ export default function MembershipPage() {
 
       <div className="mt-6 md:mt-0 md:w-full bg-gray-900 p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-semibold mb-4">Your Transactions</h2>
-        {transactionList.length > 0 ? (
+        {Array.isArray(transactionList) && transactionList.length > 0 ? (
           <ul className="space-y-4">
             {transactionList.map((transaction: any, idx: number) => (
               <li
