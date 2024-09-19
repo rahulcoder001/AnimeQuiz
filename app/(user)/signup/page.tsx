@@ -15,7 +15,7 @@ import toast from 'react-hot-toast';
 import loaderimg from '/public/Images/loader--.gif';
 import zod from 'zod';
 
-export function Signup() {
+export default function Signup() {
     const router = useRouter();
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
