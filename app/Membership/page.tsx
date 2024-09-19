@@ -4,9 +4,9 @@ import upi from "/public/Images/UPI.jpg";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import toast from "react-hot-toast";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import loaderimg from '/public/Images/loader--.gif'
+import loaderimg from '/public/Images/loader--.gif';
 
 export default function MembershipPage() {
   const session = useSession();
@@ -18,12 +18,11 @@ export default function MembershipPage() {
   const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
 
-
-  async function getTransactionList() {
+  const getTransactionList = useCallback(async () => {
     if (userr) {
       try {
         const response = await axios.get(`/api/membership?id=${userr.id}`);
-        setTransactionList(response.data.trasactionlist);
+        setTransactionList(response.data.transactionlist);
       } catch (error) {
         console.error("Error fetching transaction list", error);
       }
@@ -31,12 +30,11 @@ export default function MembershipPage() {
       toast.error("Please login to continue");
       router.push("/signin");
     }
-  }
-  useEffect(() => {
-  
+  }, [userr, router]); // Add dependencies here
 
+  useEffect(() => {
     getTransactionList();
-  }, [userr, router]);
+  }, [getTransactionList]); // Add getTransactionList to the dependency array
 
   async function buyMembership() {
     setLoading(true);

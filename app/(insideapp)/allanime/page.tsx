@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/SearchRounded";
 import { useRouter } from "next/navigation";
 // import { MembershipAdding } from "@/helper/membership";
@@ -16,18 +16,18 @@ const AnimeSelection = () => {
   const router = useRouter();
   const [loader, setLoader] = useState(false);
 
-  const getList = async () => {
+  const getList = useCallback(async () => {
     try {
       const response = await axios.get(`/api/Anime/searchAnime?filter=${filter}`);
       setAnimelist(response.data.list);
     } catch (error) {
       console.error("Error fetching anime list:", error);
     }
-  };
+  }, [filter]);
 
   useEffect(() => {
     getList();
-  }, [filter]);
+  }, [getList]);
 
   const handleMembership = async ({ animeName }: any) => {
     setLoader(true);

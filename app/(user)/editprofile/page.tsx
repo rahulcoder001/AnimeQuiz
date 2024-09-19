@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { signIn, useSession } from 'next-auth/react';
@@ -24,13 +24,13 @@ export default function Signup() {
             toast.error("Please login to continue");
             router.push("/signin");
         }
-    }, [session]); // Added session dependency to ensure reactivity
+    }, [userr, router]); // Include userr and router in the dependency array
 
     const handleProfileChange = (e: any) => {
         const file = e.target.files[0];
         if (file) {
             const imageUrl = URL.createObjectURL(file);
-            setProfile(file);  
+            setProfile(file);
             const img = new window.Image();
             img.onload = () => {
                 setProfileDimensions({ width: img.width, height: img.height });
@@ -44,7 +44,7 @@ export default function Signup() {
         await signIn("credentials", {
             redirect: false,
             email: userr?.email,
-            password: "1", // This might be hardcoded. Ensure this makes sense in your context.
+            password: "1"
         });
     }
 
