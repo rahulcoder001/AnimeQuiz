@@ -16,19 +16,21 @@ const AnimeSelection = () => {
   const router = useRouter();
   const [loader, setLoader] = useState(false);
 
-  const getList = async (filter:any) => {
-    try {
-      const response = await axios.get(`/api/Anime/searchAnime?filter=${filter}`);
-      return response.data.list;
-    } catch (error) {
-      console.error("Error fetching anime list:", error);
-      return [];
-    }
-  };
-
   useEffect(() => {
+    const getList = async () => {
+      try {
+        const response = await axios.get(`/api/Anime/searchAnime?filter=${filter}`);
+        setAnimelist(response.data.list);
+      } catch (error) {
+        console.error("Error fetching anime list:", error);
+      }
+    };
+  
     getList();
   }, [filter]);
+  
+
+ 
 
   const handleMembership = async ({ animeName }: any) => {
     setLoader(true);
