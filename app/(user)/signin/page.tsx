@@ -4,7 +4,7 @@ import goldi from '/public/Images/signingoldi.jpg';
 import Image from 'next/image';
 import GoogleIcon from '@mui/icons-material/Google';
 import { useState } from 'react';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';

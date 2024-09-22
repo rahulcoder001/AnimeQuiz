@@ -27,8 +27,7 @@ export default function MembershipPage() {
         console.error("Error fetching transaction list", error);
       }
     } else {
-      toast.error("Please login to continue");
-      router.push("/signin");
+      console.error("Error fetching transaction list");
     }
   }, [userr, router]); // Add dependencies here
 
@@ -41,6 +40,7 @@ export default function MembershipPage() {
     if (!userr) {
       toast.error("Please login to continue");
       setLoading(false);
+      router.push("/signin");
       return;
     }
 

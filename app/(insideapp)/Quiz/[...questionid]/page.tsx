@@ -213,7 +213,7 @@ export default function QuestionComponent() {
     <div className="relative text-white">
       {corrstatus && (
         <motion.div
-          className="absolute inset-0 flex justify-center items-center p-3 bg-green-500 rounded-lg shadow-lg"
+          className="absolute inset-0 z-10 flex justify-center items-center p-3 bg-green-500 rounded-lg shadow-lg"
           style={{ width: '50%', height: '50%' ,margin: '0 auto', top: '25%' }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -226,7 +226,7 @@ export default function QuestionComponent() {
       )}
       {incorrstatus && (
         <motion.div
-          className="absolute inset-0 flex justify-center items-center p-3 bg-red-500 rounded-lg shadow-lg"
+          className="absolute z-10 inset-0 flex justify-center items-center p-3 bg-red-500 rounded-lg shadow-lg"
           style={{ width: '50%', height: '50%' , margin: '0 auto', top: '25%' }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -239,12 +239,12 @@ export default function QuestionComponent() {
       )}
 
       {/* Main content */}
-      <div className="m-10">
-        <div className="p-5 flex">
-          <div className="p-5 bg-black bg-opacity-60 rounded-lg shadow-lg shadow-yellow-500 w-full">
+      <div className="my-10 sm:m-10">
+        <div className="sm:p-5 flex">
+          <div className="p-2 sm:p-5 bg-black bg-opacity-60 rounded-lg shadow-lg shadow-yellow-500 w-full">
             <div>
-              <p className="text-3xl text-white font-semibold">
-                <span className=" text-lg sm:text-2xl font-bold text-orange-500 mr-5">
+              <p className="text-xl sm:text-3xl text-white font-semibold">
+                <span className=" text-xl sm:text-2xl font-bold text-orange-500 mr-5">
                   Question {id+1}.
                 </span>
                 <AnimatedText key={id} text={questions[id]?.Question || ""} />
